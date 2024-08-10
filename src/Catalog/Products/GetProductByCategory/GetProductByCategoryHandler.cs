@@ -1,7 +1,7 @@
 ﻿
 namespace Catalog.Api.Products.GetProductByCategory
 {
-    public record GetProductByCategoryQuery(string category) : IQuery<GetProductByCategoryResult>;
+    public record GetProductByCategoryQuery(string Category) : IQuery<GetProductByCategoryResult>;
     public record GetProductByCategoryResult(IEnumerable<Product> Product);
     internal class GetProductByCategoryHandlerQuery(IDocumentSession session, ILogger<GetProductByCategoryHandlerQuery> logger) : IQueryHandler<GetProductByCategoryQuery, GetProductByCategoryResult>
     {
@@ -9,7 +9,7 @@ namespace Catalog.Api.Products.GetProductByCategory
         {
             logger.LogInformation($"GetProductByCategoryHandler called with {query}");
             var product = await session.Query<Product>()
-                .Where(p=>p.Category.Contains(query.category)).ToListAsync();
+                .Where(p=>p.Category.Contains(query.Category)).ToListAsync(cancellationToken);
             return new GetProductByCategoryResult(product);
         }
     }
