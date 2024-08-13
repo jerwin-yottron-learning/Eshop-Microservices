@@ -1,4 +1,6 @@
-﻿namespace Catalog.Api.Products.GetProducts
+﻿using FluentValidation;
+
+namespace Catalog.Api.Products.GetProducts
 {
     public record GetProductsQuery() : IQuery<GetProductsResult>;
 
@@ -7,7 +9,8 @@
     internal class GetProductQueryHandler(IDocumentSession session,ILogger<GetProductQueryHandler>logger)
         : IQueryHandler<GetProductsQuery, GetProductsResult>
     {
-   
+        
+      
         public async Task<GetProductsResult> Handle(GetProductsQuery query, CancellationToken cancellationToken)
         {
             try

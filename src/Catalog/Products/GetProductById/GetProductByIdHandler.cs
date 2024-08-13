@@ -1,18 +1,27 @@
-﻿using JasperFx.CodeGeneration.Frames;
+﻿using FluentValidation;
+using JasperFx.CodeGeneration.Frames;
 using Marten.Linq.QueryHandlers;
 
 namespace Catalog.Api.Products.GetProductById
 {
-    public record GetProductByIdQuery(Guid id) :IQuery<GetProductByIdResult>;
+    public record GetProductByIdQuery(Guid Id) :IQuery<GetProductByIdResult>;
     public record GetProductByIdResult(Product product);
     internal class GetProductByIdQueryHandler(IDocumentSession session, ILogger<GetProductByIdQueryHandler> logger)
         : IQueryHandler<GetProductByIdQuery, GetProductByIdResult>
     {
+        public class GetProductByIdQueryValidator : AbstractValidator<GetProductByIdQuery>
+        {
+            public GetProductByIdQueryValidator()
+            {
+                RuleFor(x => x.Id).NotEmpty().WithErrorCode("Id cannot be Empty");
+                
+            }
+        }
         public async Task<GetProductByIdResult> Handle(GetProductByIdQuery query, CancellationToken cancellationToken)
         {
             logger.LogInformation("GetProductByIdQueryHandler.Handle called with{@Query}",query);
 
-            var product = await session.LoadAsync<Product>(query.id,cancellationToken);
+            var product = await session.LoadAsync<Product>(query.Id,cancellationToken);
             if (product == null) {
 
                 throw new ProductNotFoundException();
