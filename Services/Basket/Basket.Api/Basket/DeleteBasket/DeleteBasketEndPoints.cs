@@ -16,11 +16,11 @@ namespace Basket.Api.Basket.DeleteBasket
                 var response = result.Adapt<DeleteBasketResponse>();
                 return Results.Ok(response);
             }).WithName("DeleteBasketByUserName")
-    .Produces<DeleteBasketResponse>(StatusCodes.Status200OK)
-    .ProducesProblem(StatusCodes.Status400BadRequest)
-    .ProducesProblem(StatusCodes.Status404NotFound)
-    .WithSummary("Delete Basket By UserName")
-    .WithDescription("Delete Basket By UserName");
+              .Produces<DeleteBasketResponse>(StatusCodes.Status200OK)
+              .ProducesProblem(StatusCodes.Status400BadRequest)
+              .ProducesProblem(StatusCodes.Status404NotFound)
+              .WithSummary("Delete Basket By UserName")
+              .WithDescription("Delete Basket By UserName");
         }
     }
 }

@@ -12,7 +12,7 @@ builder.Services.AddMediatR(config =>
     config.AddOpenBehavior(typeof(ValidationBehaviour<,>));
     config.AddOpenBehavior(typeof(LoggingBehavior<,>));
 });
-
+builder.Services.AddSwaggerGen();
 builder.Services.AddValidatorsFromAssembly(assembly);
 builder.Services.AddMarten(opts =>
 {
@@ -24,6 +24,7 @@ builder.Services.AddHealthChecks()
 builder.Services.AddExceptionHandler<CustomExceptionHandler>();
 if (builder.Environment.IsDevelopment()) 
 {
+
     builder.Services.InitializeMartenWith<CatalogInitialData>(); 
 }
 var app = builder.Build();
@@ -34,6 +35,8 @@ app.UseHealthChecks("/health",
     {
         ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
     });
+app.UseSwagger();
+app.UseSwaggerUI();
 app.UseExceptionHandler(opt =>
 {
 
