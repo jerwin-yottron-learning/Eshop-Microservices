@@ -5,3 +5,10 @@ services:
     image: postgres
     volumes:
       - postgres_catalog:/var/lib/postgresql/data/
+
+  catalog.api:
+    image: ${DOCKER_REGISTRY-}catalogapi
+    build:
+      context: .
+      dockerfile: Catalog/Dockerfile
+

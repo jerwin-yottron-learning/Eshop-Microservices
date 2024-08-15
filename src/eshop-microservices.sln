@@ -11,9 +11,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog.Api", "Catalog\Cata
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingBlocks", "{644B236C-299E-4046-B50B-246AF730C5A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks", "src\BuildingBlocks\BuildingBlocks\BuildingBlocks.csproj", "{F117B4A4-D1C5-48AB-A10C-4CF2318D01C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuildingBlocks", "src\BuildingBlocks\BuildingBlocks\BuildingBlocks.csproj", "{F117B4A4-D1C5-48AB-A10C-4CF2318D01C0}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{230DCA0D-87DB-4AAE-B63C-54E54C3192CD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Basket", "Basket", "{1ABD457C-6427-4A5F-91EC-10C9FB801273}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basket.Api", "..\Services\Basket\Basket.Api\Basket.Api.csproj", "{49E5A404-17E1-495E-BF68-C96E5F70ECA6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,10 @@ Global
 		{230DCA0D-87DB-4AAE-B63C-54E54C3192CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{230DCA0D-87DB-4AAE-B63C-54E54C3192CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{230DCA0D-87DB-4AAE-B63C-54E54C3192CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49E5A404-17E1-495E-BF68-C96E5F70ECA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49E5A404-17E1-495E-BF68-C96E5F70ECA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49E5A404-17E1-495E-BF68-C96E5F70ECA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49E5A404-17E1-495E-BF68-C96E5F70ECA6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,6 +49,8 @@ Global
 		{B4640CD0-B330-4BE4-9897-509FC74930A5} = {9DAD35EF-CC4D-4A10-B439-7548B43E7D08}
 		{6DEC4AE1-AF7C-46B1-9D28-EA08977D8EB0} = {B4640CD0-B330-4BE4-9897-509FC74930A5}
 		{F117B4A4-D1C5-48AB-A10C-4CF2318D01C0} = {644B236C-299E-4046-B50B-246AF730C5A2}
+		{1ABD457C-6427-4A5F-91EC-10C9FB801273} = {9DAD35EF-CC4D-4A10-B439-7548B43E7D08}
+		{49E5A404-17E1-495E-BF68-C96E5F70ECA6} = {1ABD457C-6427-4A5F-91EC-10C9FB801273}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5D99F54E-FA16-4235-BAAE-857D8AB967F1}
