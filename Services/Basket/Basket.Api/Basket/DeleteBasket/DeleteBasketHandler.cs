@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using Basket.Api.Data;
+using FluentValidation;
 using MediatR;
 
 namespace Basket.Api.Basket.DeleteBasket
@@ -13,11 +14,14 @@ namespace Basket.Api.Basket.DeleteBasket
         }
     }
 
-    public class DeleteBasketCommandHandler : ICommandHandler<DeleteBasketCommand, DeleteBasketResult>
+    public class DeleteBasketCommandHandler(IBasketRepository repository)
+        : ICommandHandler<DeleteBasketCommand, DeleteBasketResult>
     {
         public async Task<DeleteBasketResult> Handle(DeleteBasketCommand command, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            await repository.DeleteBasket(command.username, cancellationToken);
+
+            return new DeleteBasketResult(true);
         }
     }
 }
